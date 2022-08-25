@@ -14,7 +14,12 @@ pipeline {
                 }
             }
             steps {
-                sh 'mvn clean install'
+                sh """
+                    hostname || true
+                    pwd
+                    id
+                    mvn clean install
+                """
             }
         }
         stage('Docker Build') {
